@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D1D694E290286200022F556 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D1D694D290286200022F556 /* MainViewController.swift */; };
 		6DB21EA428F81CA7001841B6 /* RGBPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB21EA328F81CA7001841B6 /* RGBPickerViewController.swift */; };
 		6DB21EA728F81E2C001841B6 /* ThumbTextSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DB21EA628F81E2C001841B6 /* ThumbTextSlider.swift */; };
 		6DF2F86328F81C4F000B9A58 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DF2F86228F81C4F000B9A58 /* AppDelegate.swift */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6D1D694D290286200022F556 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		6DB21EA328F81CA7001841B6 /* RGBPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RGBPickerViewController.swift; sourceTree = "<group>"; };
 		6DB21EA628F81E2C001841B6 /* ThumbTextSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbTextSlider.swift; sourceTree = "<group>"; };
 		6DF2F85F28F81C4F000B9A58 /* colorPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = colorPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +47,7 @@
 			isa = PBXGroup;
 			children = (
 				6DB21EA328F81CA7001841B6 /* RGBPickerViewController.swift */,
+				6D1D694D290286200022F556 /* MainViewController.swift */,
 				6DB21EA628F81E2C001841B6 /* ThumbTextSlider.swift */,
 			);
 			path = ViewControllers;
@@ -155,6 +158,7 @@
 				6DB21EA428F81CA7001841B6 /* RGBPickerViewController.swift in Sources */,
 				6DF2F86728F81C4F000B9A58 /* ViewController.swift in Sources */,
 				6DF2F86328F81C4F000B9A58 /* AppDelegate.swift in Sources */,
+				6D1D694E290286200022F556 /* MainViewController.swift in Sources */,
 				6DB21EA728F81E2C001841B6 /* ThumbTextSlider.swift in Sources */,
 				6DF2F86528F81C4F000B9A58 /* SceneDelegate.swift in Sources */,
 			);

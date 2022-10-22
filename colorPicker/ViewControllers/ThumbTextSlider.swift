@@ -10,15 +10,11 @@ import UIKit
 class ThumbTextSlider: UISlider {
     
     private var thumbTextLabel: UILabel = UILabel()
+    private lazy var thumbView: UIView = UIView()
     
     private var thumbFrame: CGRect {
         return thumbRect(forBounds: bounds, trackRect: trackRect(forBounds: bounds), value: value)
     }
-    
-    private lazy var thumbView: UIView = {
-        let thumb = UIView()
-        return thumb
-    }()
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -36,9 +32,9 @@ class ThumbTextSlider: UISlider {
         addSubview(thumbTextLabel)
         thumbTextLabel.textAlignment = .center
         thumbTextLabel.adjustsFontSizeToFitWidth = true
-        thumbTextLabel.font = thumbTextLabel.font.withSize(30)
+        thumbTextLabel.font = thumbTextLabel.font.withSize(25)
         thumbTextLabel.layer.zPosition = layer.zPosition + 1
-        
+       
         let thumb = thumbImage()
         setThumbImage(thumb, for: .normal)
     }
@@ -49,8 +45,8 @@ class ThumbTextSlider: UISlider {
         
         let renderer = UIGraphicsImageRenderer(bounds: thumbView.bounds)
         return renderer.image { rendererContext in
-            rendererContext.cgContext.setShadow(offset: .zero, blur: 100, color: UIColor.gray.cgColor)
             thumbView.backgroundColor = .white
+            thumbView.layer.cornerRadius = 10
             thumbView.layer.render(in: rendererContext.cgContext)
         }
     }
