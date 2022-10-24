@@ -31,38 +31,32 @@ class RGBPickerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setSlider(sliderColor: .red)
-        setSlider(sliderColor: .green)
-        setSlider(sliderColor: .blue)
         addColorView()
         addBackButton()
+        addSlider(sliderColor: .red)
+        addSlider(sliderColor: .green)
+        addSlider(sliderColor: .blue)
+       
     }
     
     func addBackButton() {
-        var backButton = UIButton(type: .custom)
+        let backButton = UIButton(type: .custom)
         backButton.setTitle("Back to..", for: .normal)
         backButton.setTitleColor(backButton.tintColor, for: .normal)
         backButton.addTarget(self, action: #selector(self.backButtonPressed), for: .touchUpInside)
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
     }
-    
-    @objc func backButtonPressed() {
-        self.navigationController?.popViewController(animated: true)
-        colorDelegate?.getColorRGB(color: UIColor(red: redSpectr/255, green: greenSpectr/255, blue: blueSpectr/255, alpha: 1))
-    }
-    
-    
+
     private func addColorView() {
         let colorView: UIView = UIView(frame: .zero)
         colorView.tag = 4
-        colorView.backgroundColor = .red
+        colorView.backgroundColor = UIColor(red: redSpectr/255, green: greenSpectr/255, blue: blueSpectr/255, alpha: 1)
         colorView.layer.cornerRadius = 20
-        colorView.backgroundColor = .black
         self.view.addSubview(colorView)
         
         colorView.translatesAutoresizingMaskIntoConstraints = false
-
+        
         let safeArea = view.safeAreaLayoutGuide
         
         NSLayoutConstraint.activate([
@@ -71,34 +65,38 @@ class RGBPickerViewController: UIViewController {
             colorView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 16),
             colorView.heightAnchor.constraint(equalToConstant: 190)
         ])
-
+        
     }
     
     
-    private func setSlider(sliderColor color: sliderType){
+    private func addSlider(sliderColor color: sliderType){
         tag += 1
         
-        let elementWidth = self.view.bounds.width
+        let elementWidth = self.view.bounds.width - 16
         let elementHeight = 20
         let elementLeading = 16
         let elementTop: Int
         let elementColor: UIColor
         let elementText: String
+        let elementValue: CGFloat
         
         
         switch color {
         case .red:
             elementColor = .red
-            elementTop = 300
+            elementTop = 350
             elementText = "Red"
+            elementValue = redSpectr
         case .green:
             elementColor = .green
-            elementTop = 400
+            elementTop = 450
             elementText = "Green"
+            elementValue = greenSpectr
         case .blue:
             elementColor = .blue
-            elementTop = 500
+            elementTop = 550
             elementText = "Blue"
+            elementValue = blueSpectr
         }
         
         let sliderRGB = ThumbTextSlider(frame: CGRect(x: elementLeading * 4, y: elementTop, width: Int(elementWidth) - elementLeading * 4, height: elementHeight))
@@ -107,6 +105,7 @@ class RGBPickerViewController: UIViewController {
         sliderRGB.maximumTrackTintColor = .white
         sliderRGB.minimumValue = 0
         sliderRGB.maximumValue = 255
+        sliderRGB.value = Float(elementValue)
         sliderRGB.tag = tag
         sliderRGB.awakeFromNib()
         sliderRGB.addTarget(self, action: #selector(slide(_ :)), for: .allEvents)
@@ -122,6 +121,11 @@ class RGBPickerViewController: UIViewController {
         
     }
     
+    @objc func backButtonPressed() {
+        self.navigationController?.popViewController(animated: true)
+        colorDelegate?.getColorRGB(color: UIColor(red: redSpectr/255, green: greenSpectr/255, blue: blueSpectr/255, alpha: 1))
+    }
+    
     @objc func slide(_ sender: ThumbTextSlider) {
         if sender.value >= 0 {
             switch sender.tag{
@@ -135,10 +139,6 @@ class RGBPickerViewController: UIViewController {
             
         }
     }
-    
-    
-    
-    
 }
 
 

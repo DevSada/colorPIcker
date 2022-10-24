@@ -37,7 +37,7 @@
                     <navigationItem key="navigationItem" title="Simple Color Picker" largeTitleDisplayMode="always" style="browser" id="HKV-Sr-pms">
                         <barButtonItem key="rightBarButtonItem" title="Add" id="Rui-9v-Ck8">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="Je1-rf-Bd5"/>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="setColorSegue" id="Je1-rf-Bd5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
